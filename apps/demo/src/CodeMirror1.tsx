@@ -10,7 +10,7 @@ export function CodeMirror1(props: CodeMirrorProps) {
 
   return (
     <>
-      <div ref={ref} {...props} />
+      <div ref={ref} />
 
       {/* Buttons to show/hide line numbers */}
       <div>

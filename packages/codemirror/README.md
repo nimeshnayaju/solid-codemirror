@@ -1,14 +1,8 @@
 <p>
-  <img width="100%" src="https://assets.solidjs.com/banner?type=solid-codemirror&background=tiles&project=%20" alt="solid-codemirror">
+  <img width="100%" src="https://assets.solidjs.com/banner?type=solid-codemirror&background=tiles&project=codemirror" alt="Codemirror">
 </p>
 
-# solid-codemirror
-
-A set of libraries to integrate CodeMirror to any SolidJS apps. This repository contains two packages:
-
-- [@solid-codemirror/core](https://github.com/nimeshnayaju/solid-codemirror/tree/main/packages/core)
-
-- [@solid-codemirror/codemirror](https://github.com/nimeshnayaju/solid-codemirror/tree/main/packages/codemirror)
+# @solid-codemirror/core
 
 ## Demo
 
