@@ -1,0 +1,20 @@
+{
+  "name": "cm",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "turbo run build --filter=demo^... && changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.22.0",
+    "turbo": "^1.2.16"
+  }
+}
