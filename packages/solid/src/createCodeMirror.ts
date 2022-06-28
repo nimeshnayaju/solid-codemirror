@@ -1,45 +1,39 @@
-import {
-  Accessor,
-  onCleanup,
-  onMount,
-  createSignal,
-  on,
-  createEffect,
-  mergeProps,
-} from "solid-js";
+import { Accessor, onCleanup, onMount, on, createEffect } from "solid-js";
 import { EditorView } from "@codemirror/view";
-import { EditorState, Extension } from "@codemirror/state";
+import {
+  Compartment,
+  EditorState,
+  Extension,
+  StateEffect,
+} from "@codemirror/state";
 import { CodeMirrorProps } from "./types";
 
 export function createCodeMirror(
   props: CodeMirrorProps,
   ref: Accessor<HTMLDivElement | undefined>
-): Accessor<EditorView | undefined> {
-  const [view, setView] = createSignal<EditorView>();
+) {
+  let view: EditorView;
 
   onMount(() => {
     const state = EditorState.create({
       doc: props.value,
-      extensions: [],
     });
 
-    const cmView = new EditorView({
+    view = new EditorView({
       state,
       parent: ref(),
       dispatch: (tr): void => {
-        cmView.update([tr]);
+        view.update([tr]);
 
         if (tr.docChanged) {
           const newCode = tr.newDoc.sliceString(0, tr.newDoc.length);
-          props.onChange?.(newCode);
+          props.onValueChange?.(newCode);
         }
       },
     });
 
-    setView(cmView);
-
     onCleanup(() => {
-      cmView.destroy();
+      view.destroy();
     });
   });
 
@@ -47,13 +41,13 @@ export function createCodeMirror(
     on(
       () => props.value,
       (value) => {
-        if (value === view()?.state.doc.toString()) {
+        if (value === view.state.doc.toString()) {
           return;
         }
-        view()?.dispatch({
+        view.dispatch({
           changes: {
             from: 0,
-            to: view()?.state.doc.length,
+            to: view.state.doc.length,
             insert: value,
           },
         });
@@ -62,5 +56,23 @@ export function createCodeMirror(
     )
   );
 
-  return view;
+  function createExtension(extension: Extension) {
+    const compartment = new Compartment();
+
+    onMount(() => {
+      view.dispatch({
+        effects: StateEffect.appendConfig.of(compartment.of(extension)),
+      });
+    });
+
+    function reconfigure(extension: Extension) {
+      view.dispatch({
+        effects: compartment.reconfigure(extension),
+      });
+    }
+
+    return reconfigure;
+  }
+
+  return { createExtension };
 }

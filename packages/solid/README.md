@@ -1,10 +1,8 @@
 <p>
-  <img width="100%" src="https://assets.solidjs.com/banner?type=solid-codemirror&background=tiles&project=%20" alt="solid-codemirror">
+  <img width="100%" src="https://assets.solidjs.com/banner?type=solid-codemirror&background=tiles&project=core" alt="Core">
 </p>
 
-# solid-codemirror
-
-CodeMirror 6 component for SolidJS
+# @solid-codemirror/core
 
 ## Demo
 

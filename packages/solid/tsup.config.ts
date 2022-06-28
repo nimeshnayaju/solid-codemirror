@@ -13,4 +13,6 @@ export default defineConfig({
   minifyIdentifiers: true,
   clean: true,
   dts: true,
+  external: ["solid-js"],
+  esbuildPlugins: [solidPlugin()],
 });
