@@ -1,5 +1,11 @@
 # @solid-codemirror/codemirror
 
+## 0.0.4
+
+### Patch Changes
+
+- 5da6aea: Add optional `extensions` option that takes in an array of extensions
+
 ## 0.0.2
 
 ### Patch Changes
