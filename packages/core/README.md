@@ -4,6 +4,8 @@
 
 # @solid-codemirror/core
 
+Provides a `createCodeMirror` function that takes in a `ref` object and attaches a `CodeMirror` view to it.
+
 ## Demo
 
 https://solid-codemirror.vercel.app/

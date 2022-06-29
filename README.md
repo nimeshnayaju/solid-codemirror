@@ -4,7 +4,7 @@
 
 # solid-codemirror
 
-A set of libraries to integrate CodeMirror to any SolidJS apps. This repository contains two packages:
+A set of libraries to integrate CodeMirror to any SolidJS app. This repository contains two packages:
 
 - [@solid-codemirror/core](https://github.com/nimeshnayaju/solid-codemirror/tree/main/packages/core)
 
@@ -32,10 +32,12 @@ export default function App() {
 }
 ```
 
-## Configure Line Numbers/Read Only
+## Configure Line Numbers/Read Only/WrapLine/Extensions
 
 ```tsx
 import { CodeMirror } from "@solid-codemirror/codemirror";
+import { basicSetup } from "codemirror";
+import { python } from "@codemirror/lang-python";
 
 export default function App() {
   return (
@@ -43,7 +45,48 @@ export default function App() {
       value="Hello World 🌎"
       showLineNumbers={true}
       readOnly={false}
+      wrapLine={true}
+      extensions={[basicSetup, python()]}
     />
+  );
+}
+```
+
+## Advanced usage
+
+### Want more control over your CodeMirror component? Create your own using the `createCodeMirror` function
+
+```bash
+yarn add @solid-codemirror/core
+# or
+npm i @solid-codemirror/core
+```
+
+```tsx
+import { CodeMirrorProps, createCodeMirror } from "@solid-codemirror/core";
+import { lineNumbers } from "@codemirror/view";
+
+export function CustomCodeMirror(props: CodeMirrorProps) {
+  let ref: HTMLDivElement | undefined;
+
+  const { createExtension } = createCodeMirror(props, () => ref);
+
+  const reconfigureLineNumbers = createExtension(lineNumbers());
+
+  return (
+    <>
+      <div ref={ref} />
+
+      {/* Buttons to show/hide line numbers */}
+      <div>
+        <button onClick={() => reconfigureLineNumbers([])}>
+          Hide line numbers
+        </button>
+        <button onClick={() => reconfigureLineNumbers(lineNumbers())}>
+          Show line numbers
+        </button>
+      </div>
+    </>
   );
 }
 ```

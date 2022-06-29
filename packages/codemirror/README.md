@@ -26,10 +26,12 @@ export default function App() {
 }
 ```
 
-## Configure Line Numbers/Read Only
+## Configure Line Numbers/Read Only/WrapLine/Extensions
 
 ```tsx
 import { CodeMirror } from "@solid-codemirror/codemirror";
+import { basicSetup } from "codemirror";
+import { python } from "@codemirror/lang-python";
 
 export default function App() {
   return (
@@ -37,6 +39,8 @@ export default function App() {
       value="Hello World 🌎"
       showLineNumbers={true}
       readOnly={false}
+      wrapLine={true}
+      extensions={[basicSetup, python()]}
     />
   );
 }
