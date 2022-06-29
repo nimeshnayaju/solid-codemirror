@@ -4,11 +4,11 @@
 
 ### Patch Changes
 
-- 9d28f08: Add wrapLine option to @solid-codemirror/codemirror
+- 9d28f08: Add `wrapLine` option
 
 ## 0.0.1
 
 ### Patch Changes
 
-- 9ae1cce: - Add `createCodeMirror` primitive to the core package that creates a CodeMirror view object from the supplied ref
-  - Add `CodeMirror` component that uses the `createCodeMirror` primitive.
+- 9ae1cce:
+  - Add `readOnly` and `showLineNumbers` option to the `CodeMirror` component

@@ -2,6 +2,8 @@ import { createSignal } from "solid-js";
 import { CodeMirror } from "@solid-codemirror/codemirror";
 import { CodeMirror1 } from "./CodeMirror1";
 import { CodeMirror2 } from "./CodeMirror2";
+import { basicSetup } from "codemirror";
+import { python } from "@codemirror/lang-python";
 
 export default function App() {
   const [value, setValue] = createSignal("Hello World 🌎");
@@ -45,6 +47,7 @@ export default function App() {
           showLineNumbers={showLineNumbers()}
           readOnly={readOnly()}
           wrapLine={wrapLine()}
+          extensions={[basicSetup, python()]}
         />
 
         <button onClick={() => setReadOnly(readOnly() ? false : true)}>
