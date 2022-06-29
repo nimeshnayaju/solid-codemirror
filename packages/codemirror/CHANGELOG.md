@@ -4,7 +4,7 @@
 
 ### Patch Changes
 
-- 9d28f08: Add `wrapLine` option
+- 9d28f08: Add an optional boolean `wrapLine` option.
 
 ## 0.0.1
 
