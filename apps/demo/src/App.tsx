@@ -7,6 +7,7 @@ export default function App() {
   const [value, setValue] = createSignal("Hello World 🌎");
   const [showLineNumbers, setShowLineNumbers] = createSignal(true);
   const [readOnly, setReadOnly] = createSignal(false);
+  const [wrapLine, setWrapLine] = createSignal(false);
 
   return (
     <>
@@ -43,10 +44,14 @@ export default function App() {
           onValueChange={setValue}
           showLineNumbers={showLineNumbers()}
           readOnly={readOnly()}
+          wrapLine={wrapLine()}
         />
 
         <button onClick={() => setReadOnly(readOnly() ? false : true)}>
           Toggle Read Only
+        </button>
+        <button onClick={() => setWrapLine(wrapLine() ? false : true)}>
+          Toggle Wrap Line
         </button>
       </div>
     </>
