@@ -1,5 +1,11 @@
 # @solid-codemirror/core
 
+## 0.0.2
+
+### Patch Changes
+
+- 9d28f08: Add wrapLine option to @solid-codemirror/codemirror
+
 ## 0.0.1
 
 ### Patch Changes
