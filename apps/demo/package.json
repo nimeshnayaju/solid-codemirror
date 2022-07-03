@@ -15,12 +15,13 @@
     "vite-plugin-solid": "^2.2.6"
   },
   "dependencies": {
-    "codemirror": "^6.0.0",
     "@codemirror/lang-python": "^6.0.0",
+    "@codemirror/theme-one-dark": "^6.0.0",
     "@codemirror/view": "^6.0.0",
     "@solid-codemirror/codemirror": "workspace:*",
     "@solid-codemirror/core": "workspace:*",
     "@solid-primitives/refs": "^0.3.0",
+    "codemirror": "^6.0.0",
     "solid-js": "^1.4.2"
   }
 }

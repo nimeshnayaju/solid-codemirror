@@ -4,6 +4,7 @@ import { CodeMirror1 } from "./CodeMirror1";
 import { CodeMirror2 } from "./CodeMirror2";
 import { basicSetup } from "codemirror";
 import { python } from "@codemirror/lang-python";
+import { oneDark } from "@codemirror/theme-one-dark";
 
 export default function App() {
   const [value, setValue] = createSignal("Hello World 🌎");
@@ -48,6 +49,7 @@ export default function App() {
           readOnly={readOnly()}
           wrapLine={wrapLine()}
           extensions={[basicSetup, python()]}
+          theme={oneDark}
         />
 
         <button onClick={() => setReadOnly(readOnly() ? false : true)}>

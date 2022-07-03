@@ -1,4 +1,4 @@
-import { Extension } from "@codemirror/state";
+import type { Extension } from "@codemirror/state";
 import { createEffect, mergeProps, on } from "solid-js";
 
 export interface ExtensionsProps {
