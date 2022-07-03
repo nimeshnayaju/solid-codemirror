@@ -1,5 +1,13 @@
 # @solid-codemirror/codemirror
 
+## 0.0.5
+
+### Patch Changes
+
+- Add an optional `theme` prop that accepts an Codemirror Extension object
+- Updated dependencies
+  - @solid-codemirror/core@0.0.4
+
 ## 0.0.4
 
 ### Patch Changes

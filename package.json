@@ -14,7 +14,7 @@
     "version-packages": "changeset version",
     "release": "turbo run build --filter=demo^... && changeset publish"
   },
-  "devDependencies": {
+  "devDependencies": {  
     "@changesets/cli": "^2.22.0",
     "turbo": "^1.2.16"
   }

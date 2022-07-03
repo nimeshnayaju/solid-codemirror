@@ -1,5 +1,11 @@
 # @solid-codemirror/core
 
+## 0.0.4
+
+### Patch Changes
+
+- Add tests for `createCodeMirror` function
+
 ## 0.0.1
 
 ### Patch Changes
