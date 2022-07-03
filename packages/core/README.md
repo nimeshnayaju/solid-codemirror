@@ -18,6 +18,10 @@ yarn add @solid-codemirror/core
 npm i @solid-codemirror/core
 ```
 
+## `createCodeMirror`
+
+Attaches a `CodeMirror` view to the specified `ref` object and returns a object with a `createExtension` method to add extension compartments to the codemirror state instance.
+
 ## Basic Usage
 
 ```tsx
@@ -78,6 +82,20 @@ export default function App(props: CodeMirrorProps) {
     </div>
   );
 }
+```
+
+### Definition
+
+```ts
+function createCodeMirror(
+  props: {
+    value?: string;
+    onValueChange?: (value: string) => void;
+  },
+  ref: Accessor<HTMLDivElement | undefined>
+): {
+  createExtension: (extension: Extension) => (extension: Extension) => void;
+};
 ```
 
 ## License
