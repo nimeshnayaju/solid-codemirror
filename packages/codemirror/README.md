@@ -2,7 +2,7 @@
   <img width="100%" src="https://assets.solidjs.com/banner?type=solid-codemirror&background=tiles&project=codemirror" alt="Codemirror">
 </p>
 
-# @solid-codemirror/core
+# @solid-codemirror/codemirror
 
 CodeMirror 6 component for SolidJS
 

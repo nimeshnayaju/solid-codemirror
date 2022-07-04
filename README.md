@@ -32,12 +32,13 @@ export default function App() {
 }
 ```
 
-## Configure Line Numbers/Read Only/WrapLine/Extensions
+## Configure Line Numbers / Read Only / WrapLine / Theme / Extensions
 
 ```tsx
 import { CodeMirror } from "@solid-codemirror/codemirror";
 import { basicSetup } from "codemirror";
 import { python } from "@codemirror/lang-python";
+import { oneDark } from "@codemirror/theme-one-dark";
 
 export default function App() {
   return (
@@ -46,15 +47,18 @@ export default function App() {
       showLineNumbers={true}
       readOnly={false}
       wrapLine={true}
+      theme={oneDark}
       extensions={[basicSetup, python()]}
     />
   );
 }
 ```
 
+For more information on the usage of the `CodeMirror` component, check out [@solid-codemirror/codemirror](https://github.com/nimeshnayaju/solid-codemirror/tree/main/packages/codemirror).
+
 ## Advanced usage
 
-### Want more control over your CodeMirror component? Create your own using the `createCodeMirror` function
+### Want more control over your `CodeMirror` component? Create your custom component using the `createCodeMirror` function.
 
 ```bash
 yarn add @solid-codemirror/core
@@ -90,6 +94,8 @@ export function CustomCodeMirror(props: CodeMirrorProps) {
   );
 }
 ```
+
+For more information on the usage of the `createCodeMirror` function, check out [@solid-codemirror/core](https://github.com/nimeshnayaju/solid-codemirror/tree/main/packages/core).
 
 ## License
 
