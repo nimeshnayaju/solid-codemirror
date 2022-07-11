@@ -1,5 +1,11 @@
 # @solid-codemirror/codemirror
 
+## 1.0.0
+
+### Major Changes
+
+- - Add tests to `createReadOnly` and `createWrapLine`
+
 ## 0.0.6
 
 ### Patch Changes
