@@ -3,10 +3,12 @@ import solid from "vite-plugin-solid";
 
 export default defineConfig({
   test: {
+    globals: true,
     environment: "jsdom",
     transformMode: {
       web: [/.[jt]sx?/],
     },
+    setupFiles: "./setupVitest.ts",
     deps: {
       inline: [/solid-js/],
     },

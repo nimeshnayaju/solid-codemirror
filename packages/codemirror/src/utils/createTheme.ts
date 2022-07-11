@@ -2,6 +2,9 @@ import type { Extension } from "@codemirror/state";
 import { createEffect, mergeProps, on } from "solid-js";
 
 export interface ThemeProps {
+  /**
+   * The CodeMirror theme extension to use
+   */
   theme?: Extension;
 }
 

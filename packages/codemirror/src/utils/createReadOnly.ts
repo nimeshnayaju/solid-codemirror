@@ -7,6 +7,10 @@ import {
 import { createEffect, mergeProps, on } from "solid-js";
 
 export interface ReadOnlyProps {
+  /**
+   * Whether to set the editor to read-only
+   * @default false
+   */
   readOnly?: boolean;
 }
 

@@ -1,18 +1,23 @@
 {
   "name": "@solid-codemirror/codemirror",
-  "version": "0.0.5",
-  "type": "module",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "version": "0.0.6",
+  "main": "dist/index/index.common.js",
+  "module": "dist/index/index.module.js",
+  "types": "dist/index/index.d.ts",
   "exports": {
-    "types": "./dist/index.d.ts",
-    "import": "./dist/index.js",
-    "require": "./dist/index.cjs",
-    "default": "./dist/index.cjs"
+    ".": {
+      "solid": "./dist/index/CodeMirror.jsx",
+      "import": "./dist/index/index.module.js",
+      "browser": {
+        "import": "./dist/index/index.module.js",
+        "require": "./dist/index/index.common.js"
+      },
+      "require": "./dist/index/index.common.js",
+      "node": "./dist/index/index.common.js"
+    }
   },
   "files": [
-    "dist/**"
+    "dist"
   ],
   "sideEffects": false,
   "repository": {
@@ -25,27 +30,27 @@
   },
   "homepage": "https://github.com/nimeshnayaju/solid-codemirror.git#readme",
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
+    "build": "rollup -c rollup.config.ts",
+    "dev": "rollup -c rollup.config.js --watch",
     "test": "vitest run",
     "test:watch": "vitest watch"
   },
   "dependencies": {
     "@codemirror/state": "^6.0.0",
     "@codemirror/view": "^6.0.0",
-    "@solid-primitives/refs": "^0.3.0",
-    "@solid-codemirror/core": "workspace:*"
+    "@solid-codemirror/core": "workspace:*",
+    "@solid-primitives/refs": "^0.3.0"
   },
   "peerDependencies": {
     "solid-js": "^1.4.2"
   },
   "devDependencies": {
-    "esbuild": "^0.14.47",
-    "esbuild-plugin-solid": "^0.4.2",
+    "@testing-library/jest-dom": "^5.16.4",
     "jsdom": "^20.0.0",
+    "rollup": "^2.76.0",
+    "rollup-preset-solid": "^1.4.0",
     "solid-js": "^1.4.2",
     "solid-testing-library": "^0.3.0",
-    "tsup": "^6.1.2",
     "typescript": "^4.7.3",
     "vite-plugin-solid": "^2.2.6",
     "vitest": "^0.16.0"

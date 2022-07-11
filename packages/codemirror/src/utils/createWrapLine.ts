@@ -3,6 +3,10 @@ import { EditorView } from "@codemirror/view";
 import { createEffect, mergeProps, on } from "solid-js";
 
 export interface WrapLineProps {
+  /**
+   * Whether to wrap lines
+   * @default false
+   */
   wrapLine?: boolean;
 }
 

@@ -3,6 +3,10 @@ import { lineNumbers } from "@codemirror/view";
 import { createEffect, mergeProps, on } from "solid-js";
 
 export interface LineNumbersProps {
+  /**
+   * Whether to display line numbers
+   * @default true
+   */
   showLineNumbers?: boolean;
 }
 

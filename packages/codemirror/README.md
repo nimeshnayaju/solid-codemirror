@@ -32,15 +32,16 @@ export default function App() {
 
 You can control the `CodeMirror` component through the following props. **All props are optional.**
 
-| Prop            | Type                    | Description                                       |
-| --------------- | ----------------------- | ------------------------------------------------- |
-| `value`         | string                  | The initial value for the codemirror state        |
-| `onValueChange` | (value: string) => void | Called when the codemirror state value is updated |
-| `lineNumber`    | boolean                 | Whether to display line numbers                   |
-| `wrapLine`      | boolean                 | Whether to wrap lines                             |
-| `readOnly`      | boolean                 | Whether to set the editor to read-only            |
-| `theme`         | Extension               | The CodeMirror theme extension                    |
-| `extensions`    | Extension[]             | An array of CodeMirror extensions                 |
+| Prop              | Type                           | Description                                                                    |
+| ----------------- | ------------------------------ | ------------------------------------------------------------------------------ |
+| `value`           | `string`                       | The initial value of the editor                                                |
+| `onValueChange`   | `(value: string) => void`      | Called whenever the editor code value changes                                  |
+| `onEditorMount`   | `(editor: EditorView) => void` | Called when the editor first mounts, receiving the current EditorView instance |
+| `showLineNumbers` | `boolean`                      | Whether to display line numbers                                                |
+| `wrapLine`        | `boolean`                      | Whether to wrap lines                                                          |
+| `readOnly`        | `boolean`                      | Whether to set the editor to read-only                                         |
+| `theme`           | `Extension`                    | The CodeMirror theme extension to use                                          |
+| `extensions`      | `Extension[]`                  | An array of CodeMirror extensions to use                                       |
 
 ## Configure Line Numbers / Read Only / Line Wrapping
 

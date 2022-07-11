@@ -1,3 +1,3 @@
 // Vitest Snapshot v1
 
-exports[`createCodeMirror > renders 1`] = `"<div></div>"`;
+exports[`CodeMirror > renders 1`] = `"<div><div class=\\"cm-editor ͼ1 ͼ2 \\"><div style=\\"position: absolute; top: -10000px;\\" aria-live=\\"polite\\"></div><div tabindex=\\"-1\\" class=\\"cm-scroller\\"><div class=\\"cm-gutters\\" aria-hidden=\\"true\\" style=\\"min-height: 14px; position: sticky;\\"><div class=\\"cm-gutter cm-lineNumbers\\"><div class=\\"cm-gutterElement\\" style=\\"height: 0px; visibility: hidden; pointer-events: none;\\">9</div><div class=\\"cm-gutterElement cm-activeLineGutter\\" style=\\"height: 14px;\\">1</div></div></div><div style=\\"tab-size: 4;\\" spellcheck=\\"false\\" autocorrect=\\"off\\" autocapitalize=\\"off\\" translate=\\"no\\" contenteditable=\\"true\\" class=\\"cm-content\\" role=\\"textbox\\" aria-multiline=\\"true\\"><div class=\\"cm-activeLine cm-line\\"><br></div></div></div></div></div>"`;

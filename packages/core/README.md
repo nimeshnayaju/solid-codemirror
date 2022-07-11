@@ -84,6 +84,16 @@ export default function App(props: CodeMirrorProps) {
 }
 ```
 
+## `CodeMirrorProps`
+
+You can control the CodeMirror editor instance through the following props. **All props are optional.**
+
+| Prop            | Type                           | Description                                                                    |
+| --------------- | ------------------------------ | ------------------------------------------------------------------------------ |
+| `value`         | `string`                       | The initial value of the editor                                                |
+| `onValueChange` | `(value: string) => void`      | Called whenever the editor code value changes                                  |
+| `onEditorMount` | `(editor: EditorView) => void` | Called when the editor first mounts, receiving the current EditorView instance |
+
 ### Definition
 
 ```ts
@@ -91,7 +101,8 @@ function createCodeMirror(
   props: {
     value?: string;
     onValueChange?: (value: string) => void;
-  },
+    onEditorMount?: (editor: EditorView) => void;
+  }
   ref: Accessor<HTMLDivElement | undefined>
 ): {
   createExtension: (extension: Extension) => (extension: Extension) => void;

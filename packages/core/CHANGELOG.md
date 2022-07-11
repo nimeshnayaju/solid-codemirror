@@ -1,5 +1,11 @@
 # @solid-codemirror/core
 
+## 1.0.0
+
+### Major Changes
+
+- - Add an optional `onEditorMount` prop to `createCodeMirror` function
+
 ## 0.0.4
 
 ### Patch Changes
