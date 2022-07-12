@@ -17,12 +17,10 @@ https://solid-codemirror.vercel.app/
 ## Installation
 
 ```bash
-yarn add @solid-codemirror/codemirror @codemirror/state @codemirror/view
+yarn add @solid-codemirror/codemirror
 # or
-npm i @solid-codemirror/codemirror @codemirror/state @codemirror/view
+npm i @solid-codemirror/codemirror
 ```
-
-> **Note** The [@codemirror/state](https://github.com/codemirror/state) and [@codemirror/view](https://github.com/codemirror/state) libraries are flagged as peerDependencies and are recommeneded to be installed alongside this package.
 
 ## Basic Usage
 

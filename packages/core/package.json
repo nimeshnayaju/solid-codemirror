@@ -1,6 +1,6 @@
 {
   "name": "@solid-codemirror/core",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/index/index.common.js",
   "module": "dist/index/index.module.js",
   "types": "dist/index/index.d.ts",
@@ -21,22 +21,18 @@
   "sideEffects": false,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nimeshnayaju/cm.git"
+    "url": "git+https://github.com/nimeshnayaju/solid-codemirror.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nimeshnayaju/cm.git/issues"
+    "url": "https://github.com/nimeshnayaju/solid-codemirror.git/issues"
   },
-  "homepage": "https://github.com/nimeshnayaju/cm.git#readme",
+  "homepage": "https://github.com/nimeshnayaju/solid-codemirror.git#readme",
   "scripts": {
     "build": "rollup -c rollup.config.ts",
     "dev": "rollup -c rollup.config.ts --watch",
     "test": "vitest run",
     "test:watch": "vitest watch"
-  },
-  "dependencies": {
-    "@codemirror/state": "^6.0.0",
-    "@codemirror/view": "^6.0.0"
   },
   "peerDependencies": {
     "@codemirror/state": "^6.0.0",
@@ -44,6 +40,8 @@
     "solid-js": "^1.4.2"
   },
   "devDependencies": {
+    "@codemirror/state": "^6.0.0",
+    "@codemirror/view": "^6.0.0",
     "jsdom": "^20.0.0",
     "rollup": "^2.76.0",
     "rollup-preset-solid": "^1.4.0",

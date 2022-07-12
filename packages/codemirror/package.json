@@ -1,6 +1,6 @@
 {
   "name": "@solid-codemirror/codemirror",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "dist/index/index.common.js",
   "module": "dist/index/index.module.js",
   "types": "dist/index/index.d.ts",
@@ -36,8 +36,6 @@
     "test:watch": "vitest watch"
   },
   "dependencies": {
-    "@codemirror/state": "^6.0.0",
-    "@codemirror/view": "^6.0.0",
     "@solid-codemirror/core": "workspace:*",
     "@solid-primitives/refs": "^0.3.0"
   },
@@ -47,6 +45,8 @@
     "@codemirror/view": "^6.0.0"
   },
   "devDependencies": {
+    "@codemirror/state": "^6.0.0",
+    "@codemirror/view": "^6.0.0",
     "@testing-library/jest-dom": "^5.16.4",
     "jsdom": "^20.0.0",
     "rollup": "^2.76.0",

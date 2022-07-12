@@ -1,5 +1,11 @@
 # @solid-codemirror/core
 
+## 1.0.1
+
+### Patch Changes
+
+- Set `@codemirror/state` and `@codemirror/view` as dev dependencies
+
 ## 1.0.0
 
 ### Major Changes

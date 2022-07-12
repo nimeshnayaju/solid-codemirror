@@ -13,9 +13,9 @@ https://solid-codemirror.vercel.app/
 ## Installation
 
 ```bash
-yarn add @solid-codemirror/codemirror @codemirror/state @codemirror/view
+yarn add @solid-codemirror/codemirror
 # or
-npm i @solid-codemirror/codemirror @codemirror/state @codemirror/view
+npm i @solid-codemirror/codemirror
 ```
 
 ## Basic Usage
