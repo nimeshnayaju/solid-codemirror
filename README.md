@@ -17,10 +17,12 @@ https://solid-codemirror.vercel.app/
 ## Installation
 
 ```bash
-yarn add @solid-codemirror/codemirror
+yarn add @solid-codemirror/codemirror @codemirror/state @codemirror/view
 # or
-npm i @solid-codemirror/codemirror
+npm i @solid-codemirror/codemirror @codemirror/state @codemirror/view
 ```
+
+> **Note** The [@codemirror/state](https://github.com/codemirror/state) and [@codemirror/view](https://github.com/codemirror/state) libraries are flagged as peerDependencies and are recommeneded to be installed alongside this package.
 
 ## Basic Usage
 
@@ -32,7 +34,28 @@ export default function App() {
 }
 ```
 
-## Configure Line Numbers / Read Only / WrapLine / Theme / Extensions
+## Configure Line Numbers / Read Only / Line Wrapping
+
+```tsx
+import { CodeMirror } from "@solid-codemirror/codemirror";
+
+export default function App() {
+  return <CodeMirror showLineNumbers={true} readOnly={false} wrapLine={true} />;
+}
+```
+
+## Configure theme
+
+```tsx
+import { CodeMirror } from "@solid-codemirror/codemirror";
+import { oneDark } from "@codemirror/theme-one-dark";
+
+export default function App() {
+  return <CodeMirror theme={oneDark} />;
+}
+```
+
+## Configure Extensions
 
 ```tsx
 import { CodeMirror } from "@solid-codemirror/codemirror";
@@ -41,15 +64,27 @@ import { python } from "@codemirror/lang-python";
 import { oneDark } from "@codemirror/theme-one-dark";
 
 export default function App() {
+  return <CodeMirror extensions={[basicSetup, python()]} />;
+}
+```
+
+## Register callbacks on editor value change or editor mount
+
+```tsx
+import { CodeMirror } from "@solid-codemirror/codemirror";
+import type { EditorView } from "@codemirror/view";
+
+export default function App() {
+  const onValueChange = (value: string) => {
+    console.log(value);
+  };
+
+  const onEditorMount = (view: EditorView) => {
+    console.log(view);
+  };
+
   return (
-    <CodeMirror
-      value="Hello World 🌎"
-      showLineNumbers={true}
-      readOnly={false}
-      wrapLine={true}
-      theme={oneDark}
-      extensions={[basicSetup, python()]}
-    />
+    <CodeMirror onEditorMount={onEditorMount} onValueChange={onValueChange} />
   );
 }
 ```
@@ -75,17 +110,56 @@ For more information on the usage of the `CodeMirror` component, check out [@sol
 
 ### Want more control over your `CodeMirror` component? Create your custom component using the `createCodeMirror` function.
 
+## Installation
+
 ```bash
-yarn add @solid-codemirror/core
+yarn add @solid-codemirror/core @codemirror/state @codemirror/view
 # or
-npm i @solid-codemirror/core
+npm i @solid-codemirror/core @codemirror/state @codemirror/view
 ```
+
+## `createCodeMirror`
+
+Attaches a `CodeMirror` view to the specified `ref` object and returns a object with a `createExtension` method to add extension compartments to the codemirror state instance.
+
+## Basic Usage
+
+```tsx
+import { CodeMirrorProps, createCodeMirror } from "@solid-codemirror/core";
+
+export default function CodeMirror(props: CodeMirrorProps) {
+  let ref: HTMLDivElement | undefined;
+
+  createCodeMirror(props, () => ref);
+
+  return <div ref={ref} />;
+}
+```
+
+## Add Extension
 
 ```tsx
 import { CodeMirrorProps, createCodeMirror } from "@solid-codemirror/core";
 import { lineNumbers } from "@codemirror/view";
 
-export function CustomCodeMirror(props: CodeMirrorProps) {
+export default function App(props: CodeMirrorProps) {
+  let ref: HTMLDivElement | undefined;
+
+  const { createExtension } = createCodeMirror(props, () => ref);
+
+  createExtension(lineNumbers());
+
+  return <div ref={ref} />;
+}
+```
+
+## Reconfigure Extension
+
+```tsx
+import { CodeMirrorProps, createCodeMirror } from "@solid-codemirror/core";
+import { lineNumbers } from "@codemirror/view";
+
+export default function App(props: CodeMirrorProps) {
   let ref: HTMLDivElement | undefined;
 
   const { createExtension } = createCodeMirror(props, () => ref);
@@ -93,7 +167,7 @@ export function CustomCodeMirror(props: CodeMirrorProps) {
   const reconfigureLineNumbers = createExtension(lineNumbers());
 
   return (
-    <>
+    <div>
       <div ref={ref} />
 
       {/* Buttons to show/hide line numbers */}
@@ -105,10 +179,12 @@ export function CustomCodeMirror(props: CodeMirrorProps) {
           Show line numbers
         </button>
       </div>
-    </>
+    </div>
   );
 }
 ```
+
+> **Info** Extensions in `@codemirror/core` are wrapped inside an editor [Comparment](https://codemirror.net/docs/ref/#state.Compartment). Compartments enable [dynamic reconfiguration](https://codemirror.net/examples/config/) (partially reconfigure a tree of extensions) of the editor.
 
 For more information on the usage of the `createCodeMirror` function, check out [@solid-codemirror/core](https://github.com/nimeshnayaju/solid-codemirror/tree/main/packages/core).
 

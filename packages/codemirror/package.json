@@ -31,7 +31,7 @@
   "homepage": "https://github.com/nimeshnayaju/solid-codemirror.git#readme",
   "scripts": {
     "build": "rollup -c rollup.config.ts",
-    "dev": "rollup -c rollup.config.js --watch",
+    "dev": "rollup -c rollup.config.ts --watch",
     "test": "vitest run",
     "test:watch": "vitest watch"
   },
@@ -42,7 +42,9 @@
     "@solid-primitives/refs": "^0.3.0"
   },
   "peerDependencies": {
-    "solid-js": "^1.4.2"
+    "solid-js": "^1.4.2",
+    "@codemirror/state": "^6.0.0",
+    "@codemirror/view": "^6.0.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.4",

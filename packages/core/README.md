@@ -13,9 +13,9 @@ https://solid-codemirror.vercel.app/
 ## Installation
 
 ```bash
-yarn add @solid-codemirror/core
+yarn add @solid-codemirror/core @codemirror/state @codemirror/view
 # or
-npm i @solid-codemirror/core
+npm i @solid-codemirror/core @codemirror/state @codemirror/view
 ```
 
 ## `createCodeMirror`
@@ -83,6 +83,8 @@ export default function App(props: CodeMirrorProps) {
   );
 }
 ```
+
+> **Info** Extensions in `@codemirror/core` are wrapped inside an editor [Comparment](https://codemirror.net/docs/ref/#state.Compartment). Compartments enable [dynamic reconfiguration](https://codemirror.net/examples/config/) (partially reconfigure a tree of extensions) of the editor.
 
 ## `CodeMirrorProps`
 

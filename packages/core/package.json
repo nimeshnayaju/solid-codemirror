@@ -30,7 +30,7 @@
   "homepage": "https://github.com/nimeshnayaju/cm.git#readme",
   "scripts": {
     "build": "rollup -c rollup.config.ts",
-    "dev": "rollup -c rollup.config.js --watch",
+    "dev": "rollup -c rollup.config.ts --watch",
     "test": "vitest run",
     "test:watch": "vitest watch"
   },

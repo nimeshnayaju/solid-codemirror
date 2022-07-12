@@ -13,9 +13,9 @@ https://solid-codemirror.vercel.app/
 ## Installation
 
 ```bash
-yarn add @solid-codemirror/codemirror
+yarn add @solid-codemirror/codemirror @codemirror/state @codemirror/view
 # or
-npm i @solid-codemirror/codemirror
+npm i @solid-codemirror/codemirror @codemirror/state @codemirror/view
 ```
 
 ## Basic Usage
@@ -74,6 +74,27 @@ import { oneDark } from "@codemirror/theme-one-dark";
 
 export default function App() {
   return <CodeMirror extensions={[basicSetup, python()]} />;
+}
+```
+
+## Register callbacks on editor value change or editor mount
+
+```tsx
+import { CodeMirror } from "@solid-codemirror/codemirror";
+import type { EditorView } from "@codemirror/view";
+
+export default function App() {
+  const onValueChange = (value: string) => {
+    console.log(value);
+  };
+
+  const onEditorMount = (view: EditorView) => {
+    console.log(view);
+  };
+
+  return (
+    <CodeMirror onEditorMount={onEditorMount} onValueChange={onValueChange} />
+  );
 }
 ```
 
