@@ -1,6 +1,6 @@
 {
   "name": "@solid-codemirror/codemirror",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/index/index.common.js",
   "module": "dist/index/index.module.js",
   "types": "dist/index/index.d.ts",

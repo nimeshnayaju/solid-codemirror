@@ -1,10 +1,16 @@
 # @solid-codemirror/codemirror
 
+## 1.0.1
+
+### Patch Changes
+
+- Flag `@codemirror/state` and `@codemirror/view` as peer dependencies
+
 ## 1.0.0
 
 ### Major Changes
 
-- - Add tests to `createReadOnly` and `createWrapLine`
+- Add tests to `createReadOnly` and `createWrapLine`
 
 ## 0.0.6
 

@@ -105,8 +105,12 @@ You can control the `CodeMirror` component through the following props. **All pr
 | `extensions`      | `Extension[]`                  | An array of CodeMirror extensions to use                                       |
 
 For more information on the usage of the `CodeMirror` component, check out [@solid-codemirror/codemirror](https://github.com/nimeshnayaju/solid-codemirror/tree/main/packages/codemirror).
+\
+&nbsp;
+\
+&nbsp;
 
-## Advanced usage
+# Advanced usage
 
 ### Want more control over your `CodeMirror` component? Create your custom component using the `createCodeMirror` function.
 
@@ -185,6 +189,8 @@ export default function App(props: CodeMirrorProps) {
 ```
 
 > **Info** Extensions in `@codemirror/core` are wrapped inside an editor [Comparment](https://codemirror.net/docs/ref/#state.Compartment). Compartments enable [dynamic reconfiguration](https://codemirror.net/examples/config/) (partially reconfigure a tree of extensions) of the editor.
+
+> **Info** The `@solid-codemirror/codemirror` package is based on `@codemirror/core`. You can view the [source code](https://github.com/nimeshnayaju/solid-codemirror/tree/main/packages/codemirror) of the library here.
 
 For more information on the usage of the `createCodeMirror` function, check out [@solid-codemirror/core](https://github.com/nimeshnayaju/solid-codemirror/tree/main/packages/core).
 
