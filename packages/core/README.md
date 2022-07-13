@@ -18,6 +18,8 @@ yarn add @solid-codemirror/core
 npm i @solid-codemirror/core
 ```
 
+> **Note** The [@codemirror/state](https://github.com/codemirror/state) and [@codemirror/view](https://github.com/codemirror/state) libraries are flagged as peer dependencies and are recommeneded to be installed alongside this package.
+
 ## `createCodeMirror`
 
 Attaches a `CodeMirror` view to the specified `ref` object and returns a object with a `createExtension` method to add extension compartments to the codemirror state instance.

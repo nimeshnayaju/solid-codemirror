@@ -1,5 +1,11 @@
 # @solid-codemirror/codemirror
 
+## 1.0.3
+
+### Patch Changes
+
+- Fix extension configuration error due to bundling
+
 ## 1.0.2
 
 ### Patch Changes
