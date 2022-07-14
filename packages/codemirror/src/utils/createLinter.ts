@@ -1,5 +1,6 @@
 import type { Extension } from "@codemirror/state";
-import { createEffect, mergeProps, on } from "solid-js";
+import { createEffect, createMemo, mergeProps, on } from "solid-js";
+import { linter } from "@codemirror/lint";
 
 export interface LinterProps {
   /**
@@ -14,11 +15,20 @@ export function createLinter(
 ) {
   const merged = mergeProps({ linter: [] }, props);
 
-  const reconfigureLinter = createExtension(merged.linter);
+  const getLinter = (l: Extension ) => typeof l === "function" ? linter(l) : l
+
+  const linters = createMemo(()=>
+    Array.isArray(merged.linter) 
+      ? merged.linter.map(l => getLinter(l)) 
+      : getLinter(merged.linter)
+  
+  )
+
+  const reconfigureLinter = createExtension(linters());
 
   createEffect(
     on(
-      () => merged.linter,
+      () => linters(),
       (linter) => {
         reconfigureLinter(linter);
       },
