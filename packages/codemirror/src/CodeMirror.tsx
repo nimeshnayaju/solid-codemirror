@@ -9,22 +9,24 @@ import {
   createTheme, 
   createWrapLine, 
   createLinter,
+  createLanguage,
   ExtensionsProps,
   LineNumbersProps, 
   ReadOnlyProps, 
   ThemeProps, 
-  LinterProps,
+  LinterProps, 
+  LanguageProps, 
   WrapLineProps, 
 } from "./utils";
 
-export type Props = CodeMirrorProps & LineNumbersProps & ReadOnlyProps & WrapLineProps & ExtensionsProps & ThemeProps  & LinterProps & JSX.HTMLAttributes<HTMLDivElement>;
+export type Props = CodeMirrorProps & LineNumbersProps & ReadOnlyProps & WrapLineProps & ExtensionsProps & ThemeProps & LanguageProps  & LinterProps & JSX.HTMLAttributes<HTMLDivElement>;
 
 export function CodeMirror(
   props: Props
 ) {
   let ref: HTMLDivElement | undefined;
 
-  const [codemirrorProps, lineNumberProps, readOnlyProps, wrapLineProps, extensionProps, themeProps, linterProps, others] = splitProps(props, ["value", "onValueChange", "onEditorMount"], ["showLineNumbers"], ["readOnly"], ["wrapLine"], ["extensions"], ["theme"], ["linter"]);
+  const [codemirrorProps, lineNumberProps, readOnlyProps, wrapLineProps, extensionProps, themeProps, linterProps, languageProps, others] = splitProps(props, ["value", "onValueChange", "onEditorMount"], ["showLineNumbers"], ["readOnly"], ["wrapLine"], ["extensions"], ["theme"], ["linter"], ["language"]);
   
   const { createExtension } = createCodeMirror(codemirrorProps, () => ref);
 
@@ -33,7 +35,8 @@ export function CodeMirror(
   createWrapLine(wrapLineProps, createExtension); 
   createTheme(themeProps, createExtension); 
   createExtensions(extensionProps, createExtension); 
-  createLinter(linterProps, createExtension);
+  createLinter(linterProps, createExtension); 
+  createLanguage(languageProps, createExtension); 
 
   return <div ref={mergeRefs(el => (ref = el), props.ref)} {...others} />;
 }

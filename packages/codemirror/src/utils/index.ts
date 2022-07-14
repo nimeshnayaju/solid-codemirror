@@ -4,3 +4,4 @@ export * from "./createWrapLine";
 export * from "./createExtensions";
 export * from "./createTheme";
 export * from "./createLinter";
+export * from "./createLanguage";
