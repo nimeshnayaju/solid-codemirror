@@ -5,3 +5,4 @@ export * from "./createExtensions";
 export * from "./createTheme";
 export * from "./createLinter";
 export * from "./createLanguage";
+export * from "./createKeymap";

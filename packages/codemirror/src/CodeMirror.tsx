@@ -8,25 +8,27 @@ import {
   createReadOnly, 
   createTheme, 
   createWrapLine, 
-  createLinter,
-  createLanguage,
+  createLinter, 
+  createLanguage, 
+  createKeymap,
   ExtensionsProps,
   LineNumbersProps, 
   ReadOnlyProps, 
   ThemeProps, 
   LinterProps, 
   LanguageProps, 
+  KeymapProps,
   WrapLineProps, 
 } from "./utils";
 
-export type Props = CodeMirrorProps & LineNumbersProps & ReadOnlyProps & WrapLineProps & ExtensionsProps & ThemeProps & LanguageProps  & LinterProps & JSX.HTMLAttributes<HTMLDivElement>;
+export type Props = CodeMirrorProps & LineNumbersProps & ReadOnlyProps & WrapLineProps & ExtensionsProps & ThemeProps & LanguageProps & KeymapProps & LinterProps & JSX.HTMLAttributes<HTMLDivElement>;
 
 export function CodeMirror(
   props: Props
 ) {
   let ref: HTMLDivElement | undefined;
 
-  const [codemirrorProps, lineNumberProps, readOnlyProps, wrapLineProps, extensionProps, themeProps, linterProps, languageProps, others] = splitProps(props, ["value", "onValueChange", "onEditorMount"], ["showLineNumbers"], ["readOnly"], ["wrapLine"], ["extensions"], ["theme"], ["linter"], ["language"]);
+  const [codemirrorProps, lineNumberProps, readOnlyProps, wrapLineProps, extensionProps, themeProps, linterProps, languageProps, keymapProps, others] = splitProps(props, ["value", "onValueChange", "onEditorMount"], ["showLineNumbers"], ["readOnly"], ["wrapLine"], ["extensions"], ["theme"], ["linter"], ["language"], ["keymap"]);
   
   const { createExtension } = createCodeMirror(codemirrorProps, () => ref);
 
@@ -37,6 +39,7 @@ export function CodeMirror(
   createExtensions(extensionProps, createExtension); 
   createLinter(linterProps, createExtension); 
   createLanguage(languageProps, createExtension); 
+  createKeymap(keymapProps, createExtension); 
 
   return <div ref={mergeRefs(el => (ref = el), props.ref)} {...others} />;
 }
