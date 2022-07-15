@@ -20,6 +20,26 @@ npm i @solid-codemirror/codemirror
 
 > **Note** The [@codemirror/state](https://github.com/codemirror/state) and [@codemirror/view](https://github.com/codemirror/state) libraries are flagged as peer dependencies and are recommeneded to be installed alongside this package.
 
+## Known issue with `Vite`
+
+> **Warning** You may encounter the following error if you're using Vite as your bundling tool:
+>
+> ```bash
+> Error: Unrecognized extension value in extension set ([object Object]). This sometimes happens because multipleinstances of @codemirror/state are loaded, breaking instanceof checks.
+> ```
+>
+> **Note**: This error can be fixed by adding the following configuration option to your `vite.config.{js,ts}` file.
+>
+> ```typescript
+> export default defineConfig({
+>   // Your configuration
+>   optimizeDeps: {
+>     // Add both @codemirror/state and @codemirror/view to included deps for optimization
+>     include: ["@codemirror/state", "@codemirror/view"],
+>   },
+> });
+> ```
+
 ## Basic Usage
 
 ```tsx

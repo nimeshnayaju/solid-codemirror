@@ -24,6 +24,8 @@ npm i @solid-codemirror/codemirror
 
 > **Note** The [@codemirror/state](https://github.com/codemirror/state) and [@codemirror/view](https://github.com/codemirror/state) libraries are flagged as peer dependencies and are recommeneded to be installed alongside this package.
 
+## Known issue with `Vite`
+
 > **Warning** You may encounter the following error if you're using Vite as your bundling tool:
 >
 > ```bash
