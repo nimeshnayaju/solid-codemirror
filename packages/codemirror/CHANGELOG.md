@@ -1,5 +1,11 @@
 # @solid-codemirror/codemirror
 
+## 1.0.4
+
+### Patch Changes
+
+- b7e996c: Roll back to `rollup` for SSR serving
+
 ## 1.0.3
 
 ### Patch Changes
