@@ -28,7 +28,7 @@ npm i @solid-codemirror/codemirror
 > Error: Unrecognized extension value in extension set ([object Object]). This sometimes happens because multipleinstances of @codemirror/state are loaded, breaking instanceof checks.
 > ```
 >
-> **Note**: This error can be fixed by adding the following configuration option to your `vite.config.{js,ts}` file.
+> This error can be fixed by adding the following configuration option to your `vite.config.{js,ts}` file.
 >
 > ```typescript
 > export default defineConfig({
