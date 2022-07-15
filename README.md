@@ -24,6 +24,24 @@ npm i @solid-codemirror/codemirror
 
 > **Note** The [@codemirror/state](https://github.com/codemirror/state) and [@codemirror/view](https://github.com/codemirror/state) libraries are flagged as peer dependencies and are recommeneded to be installed alongside this package.
 
+> **Warning** You may encounter the following error if you're using Vite as your bundling tool:
+>
+> ```bash
+> Error: Unrecognized extension value in extension set ([object Object]). This sometimes happens because multipleinstances of @codemirror/state are loaded, breaking instanceof checks.
+> ```
+>
+> **Note**: This error can be fixed by adding the following configuration option to your `vite.config.{js,ts}` file.
+>
+> ```typescript
+> export default defineConfig({
+>   // Your configuration
+>   optimizeDeps: {
+>     // Add both @codemirror/state and @codemirror/view to included deps for optimization
+>     include: ["@codemirror/state", "@codemirror/view"],
+>   },
+> });
+> ```
+
 ## Basic Usage
 
 ```tsx
@@ -188,9 +206,9 @@ export default function App(props: CodeMirrorProps) {
 }
 ```
 
-> **Info** Extensions in `@codemirror/core` are wrapped inside an editor [Comparment](https://codemirror.net/docs/ref/#state.Compartment). Compartments enable [dynamic reconfiguration](https://codemirror.net/examples/config/) (partially reconfigure a tree of extensions) of the editor.
+> **Note** Extensions in `@codemirror/core` are wrapped inside an editor [Comparment](https://codemirror.net/docs/ref/#state.Compartment). Compartments enable [dynamic reconfiguration](https://codemirror.net/examples/config/) (partially reconfigure a tree of extensions) of the editor.
 
-> **Info** The `@solid-codemirror/codemirror` package is based on `@codemirror/core`. You can view the [source code](https://github.com/nimeshnayaju/solid-codemirror/tree/main/packages/codemirror) of the library here.
+> **Note** The `@solid-codemirror/codemirror` package is based on `@codemirror/core`. You can view the [source code](https://github.com/nimeshnayaju/solid-codemirror/tree/main/packages/codemirror) of the library here.
 
 For more information on the usage of the `createCodeMirror` function, check out [@solid-codemirror/core](https://github.com/nimeshnayaju/solid-codemirror/tree/main/packages/core).
 

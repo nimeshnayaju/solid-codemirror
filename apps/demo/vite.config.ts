@@ -7,4 +7,8 @@ export default defineConfig({
     target: "esnext",
     polyfillDynamicImport: false,
   },
+  optimizeDeps: {
+    // Add both @codemirror/state and @codemirror/view to included deps to optimize
+    include: ["@codemirror/state", "@codemirror/view"],
+  },
 });

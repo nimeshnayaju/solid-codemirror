@@ -113,6 +113,10 @@ function createCodeMirror(
 };
 ```
 
+> **Note** Extensions in `@codemirror/core` are wrapped inside an editor [Comparment](https://codemirror.net/docs/ref/#state.Compartment). Compartments enable [dynamic reconfiguration](https://codemirror.net/examples/config/) (partially reconfigure a tree of extensions) of the editor.
+
+> **Note** The `@solid-codemirror/codemirror` package is based on `@codemirror/core`. You can view the [source code](https://github.com/nimeshnayaju/solid-codemirror/tree/main/packages/codemirror) of the library here.
+
 ## License
 
 This project is licensed under MIT.
