@@ -33,9 +33,9 @@ export function createCodeMirror(
 
         view.update([tr]);
 
-        if (tr.docChanged) {
+        if (tr.docChanged && props.onValueChange) {
           const newCode = tr.newDoc.sliceString(0, tr.newDoc.length);
-          props.onValueChange?.(newCode);
+          props.onValueChange(newCode);
         }
       },
     });
