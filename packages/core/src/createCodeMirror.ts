@@ -33,9 +33,23 @@ export function createCodeMirror(
 
         view.update([tr]);
 
-        if (tr.docChanged) {
-          const newCode = tr.newDoc.sliceString(0, tr.newDoc.length);
-          props.onValueChange?.(newCode);
+        if (!tr.docChanged) {
+          return;
+        }
+        if (props.onEditorState) {
+          const newEditorState = tr.state; // call: get state
+          props.onEditorState(newEditorState);
+          if (props.onValueChange) {
+            const newCode = newEditorState.doc.sliceString(0, newEditorState.doc.length);
+            props.onValueChange(newCode);
+          }
+        }
+        else {
+          if (props.onValueChange) {
+            const newDoc = tr.newDoc; // call: get doc
+            const newCode = newDoc.sliceString(0, newDoc.length);
+            props.onValueChange(newCode);
+          }
         }
       },
     });
